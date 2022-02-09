@@ -14,23 +14,23 @@
         <section class="config_wrapper">
             <h2>Tamanho (px)</h2>
             <div class="config">
-                <button class="config_button">-</button>
-                <input class="config_input" type="text" value="40">
-                <button class="config_button">+</button>
+                <button class="config_button" data-size-sub>-</button>
+                <input class="config_input" data-size-input type="text" value="40">
+                <button class="config_button" data-size-add>+</button>
             </div>
     
             <h2>Largura (px)</h2>
             <div class="config">
-                <button class="config_button">-</button>
-                <input class="config_input" type="text" value="1">
-                <button class="config_button">
-                    <svg width="24" height="24" stroke-width="1" stroke="#ff0" fill="none" stroke-linejoin="arcs" stroke-linecap="square" viewBox="0 0 24 24"> <g fill="none" fill-rule="evenodd"><rect width="24" height="24" style="stroke:rgba(0,0,0,0)"></rect><path d="M12,5 L12,19 M5,12 L19,12" stroke="#ff0"></path></g></svg>
+                <button class="config_button" data-width-sub>-</button>
+                <input class="config_input" data-width-input type="text" value="1">
+                <button class="config_button" data-width-add>+
+                    <!-- <svg width="24" height="24" stroke-width="1" stroke="#ff0" fill="none" stroke-linejoin="arcs" stroke-linecap="square" viewBox="0 0 24 24"> <g fill="none" fill-rule="evenodd"><rect width="24" height="24" style="stroke:rgba(0,0,0,0)"></rect><path d="M12,5 L12,19 M5,12 L19,12" stroke="#ff0"></path></g></svg> -->
                 </button>
             </div>
 
             <h2>Cor</h2>
             <div class="config">
-                <input class="config_input" data-config-color type="text" maxlength="7" value="#ff0000">
+                <input class="config_input" data-config-color type="text" maxlength="7" value="#dcd504">
                 
                 <button class="config_button color_wheel_wrapper">
                     <input class="button_color_picker" data-color-picker type="color">
@@ -39,7 +39,7 @@
             </div>
 
             <section class="categories">
-                <h2>Categorias</h2>
+                <h2>Categorias (work in progress)</h2>
                 <div class="categories_wrapper">
                     <button class="button_category" data-button-category>todos</button>
                     <button class="button_category" data-button-category>objetos</button>
@@ -56,9 +56,9 @@
                 </div>
             </section>
 
-            <button class="download_button">Nenhum ícone selecionado</button>
+            <button class="download_button">Work in progress</button>
 
-            <footer>© Todos os direitos reservados.</footer>
+            <!-- <footer>2022 dougDuarte</footer> -->
         </section>
     </aside>
 
@@ -75,7 +75,7 @@
                 <input class="search" data-search type="search" placeholder="Pesquise tags como 'perigo' ou 'lugar'">
             </div>
 
-            <p class="search_result">Resultado da busca '<span data-result>topster</span>'</p>
+            <!-- <p class="search_result">Resultado da busca '<span data-result>topster</span>'</p> -->
 
             <section class="list" data-list></section>
         </main>

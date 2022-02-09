@@ -1,5 +1,5 @@
 let strokeWidth = 1
-let strokeColor = '#666666'
+let strokeColor = '#dcd504'
 let iconSize = 40
 const ICON_CONFIG = `<svg data-icon viewBox="0 0 24 24" width="${iconSize}" stroke-width="${strokeWidth}" stroke="${strokeColor}" fill="none"><path vector-effect="non-scaling-stroke"`
 
