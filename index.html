@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="style.css">
@@ -10,78 +9,71 @@
 </head>
 
 <body>
-    <aside>
+    <aside class="menu">
         <section class="config_wrapper">
-            <h2>Tamanho (px)</h2>
+
+            <h2>Tamanho</h2>
             <div class="config">
-                <button class="config_button" data-size-sub>-</button>
-                <input class="config_input" data-size-input type="text" value="40">
-                <button class="config_button" data-size-add>+</button>
+                <button class="config_button" data-size-sub>
+                    <svg viewBox="0 0 24 24" stroke-width="1" fill="none"><path vector-effect="non-scaling-stroke" d="M5,12 L19,12"></path></svg>
+                </button>
+
+                <input class="config_input" data-size-text type="text" maxlength="2" spellcheck="false" value="40px">
+
+                <button class="config_button" data-size-add>
+                    <svg viewBox="0 0 24 24" stroke-width="1" fill="none"><path vector-effect="non-scaling-stroke" d="M12,5 L12,19 M5,12 L19,12"></path></svg>
+                </button>
             </div>
     
-            <h2>Largura (px)</h2>
+            <h2>Largura</h2>
             <div class="config">
-                <button class="config_button" data-width-sub>-</button>
-                <input class="config_input" data-width-input type="text" value="1">
-                <button class="config_button" data-width-add>+
-                    <!-- <svg width="24" height="24" stroke-width="1" stroke="#ff0" fill="none" stroke-linejoin="arcs" stroke-linecap="square" viewBox="0 0 24 24"> <g fill="none" fill-rule="evenodd"><rect width="24" height="24" style="stroke:rgba(0,0,0,0)"></rect><path d="M12,5 L12,19 M5,12 L19,12" stroke="#ff0"></path></g></svg> -->
+                <button class="config_button" data-width-sub>
+                    <svg viewBox="0 0 24 24" stroke-width="1" fill="none"><path vector-effect="non-scaling-stroke" d="M5,12 L19,12"></path></svg>
+                </button>
+
+                <input class="config_input" data-width-text type="text" maxlength="3" spellcheck="false" value="1px">
+
+                <button class="config_button" data-width-add>
+                    <svg viewBox="0 0 24 24" stroke-width="1" fill="none"><path vector-effect="non-scaling-stroke" d="M12,5 L12,19 M5,12 L19,12"></path></svg>
                 </button>
             </div>
 
             <h2>Cor</h2>
             <div class="config">
-                <input class="config_input" data-config-color type="text" maxlength="7" value="#dcd504">
+                <input class="config_input" data-color-text type="text" maxlength="6" spellcheck="false" value="#cedc04">
                 
-                <button class="config_button color_wheel_wrapper">
-                    <input class="button_color_picker" data-color-picker type="color">
-                    <div class="color_wheel" data-color-wheel></div>
+                <button class="config_button color_picker_wrapper">
+                    <input class="color_picker" data-color-picker type="color">
+                    <div class="color_picker_preview"></div>
                 </button>
             </div>
 
-            <section class="categories">
-                <h2>Categorias (work in progress)</h2>
-                <div class="categories_wrapper">
-                    <button class="button_category" data-button-category>todos</button>
-                    <button class="button_category" data-button-category>objetos</button>
-                    <button class="button_category" data-button-category>segurança</button>
-                    <button class="button_category" data-button-category>tempo</button>
-                    <button class="button_category" data-button-category>sinalização</button>
-                    <button class="button_category" data-button-category>design</button>
-                    <button class="button_category" data-button-category>menu</button>
-                    <button class="button_category" data-button-category>natureza</button>
-                    <button class="button_category" data-button-category>internet</button>
-                    <button class="button_category" data-button-category>social</button>
-                    <button class="button_category" data-button-category>e-commerce</button>
-                    <button class="button_category" data-button-category>localização</button>
-                </div>
-            </section>
+            <h2>Categorias (Work in Progress)</h2>
+            <div class="category_list" data-category-list></div>
 
-            <button class="download_button">Work in progress</button>
-
-            <!-- <footer>2022 dougDuarte</footer> -->
+            <button class="download_button" data-download-button>Work in progress</button>
         </section>
     </aside>
 
     <div class="content">
         <header>
-            <h1>Projeto ICO</h1>
-            <p>Projeto criado por Douglas Duarte, para fins de estudos em HTML, CSS e JavaScript.</p>
+            <h1>Project ICO</h1>
+            <p>Projeto criado por Douglas Duarte, para fins de estudos em HTML, CSS e JavaScript.<br>A plataforma permite a pesquisa e estilização dos ícones que possui.<br>Na versão final será possível realmente baixar um ou mais ícones de uma vez.</p>
         </header>
 
         <main>
-            <div class="search_wrapper">
-                <svg class="search_icon" width="24" viewBox="0 0 24 24" stroke-width="2" fill="none"><path vector-effect="non-scaling-stroke" d="M10,18 C14.418278,18 18,14.418278 18,10 C18,5.581722 14.418278,2 10,2 C5.581722,2 2,5.581722 2,10 C2,14.418278 5.581722,18 10,18 Z M21.5067024,21.5067024 L16,16"></path></svg>
+            <div class="search_bar_wrapper">
+                <svg width="24" viewBox="0 0 24 24" stroke-width="1" fill="none"><path vector-effect="non-scaling-stroke" d="M10,18 C14.418278,18 18,14.418278 18,10 C18,5.581722 14.418278,2 10,2 C5.581722,2 2,5.581722 2,10 C2,14.418278 5.581722,18 10,18 Z M21.5067024,21.5067024 L16,16"></path></svg>
 
-                <input class="search" data-search type="search" placeholder="Pesquise tags como 'perigo' ou 'lugar'">
+                <input class="search_bar" data-search-bar type="text" placeholder="Pesquise tags como 'perigo' ou 'lugar'">
             </div>
 
-            <!-- <p class="search_result">Resultado da busca '<span data-result>topster</span>'</p> -->
+            <p class="search_result">Resultado da busca '<span data-search>topster</span>', na categoria '<span data-search-category>Todos</span>'</p>
 
-            <section class="list" data-list></section>
+            <section class="item_list" data-item-list></section>
         </main>
     </div>
 
-    <script src="icons.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
