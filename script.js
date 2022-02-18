@@ -1,14 +1,14 @@
 // IMPORTS --->
 
-import { selectTheme } from '/theme.js'
-import { openMenu, closeMenu, queryCloseMenu } from '/mobileMenu.js'
-import { sizeSub, sizeAdd, sizeFilter, sizeStartTyping, sizeEndTyping } from '/configIconSize.js'
-import { widthSub, widthAdd, widthFilter, widthStartTyping, widthEndTyping } from '/configIconWidth.js'
-import { colorPick, colorFilter, colorStartTyping, colorEndTyping } from '/configIconColor.js'
-import { createCategoryList, selectCategory } from '/categories.js'
-import { download } from '/download.js'
-import { searchFilter } from '/search.js'
-import { createItemList, selectItem } from '/items.js'
+import { selectTheme } from './theme.js'
+import { openMenu, closeMenu, queryCloseMenu } from './mobileMenu.js'
+import { sizeSub, sizeAdd, sizeFilter, sizeStartTyping, sizeEndTyping } from './configIconSize.js'
+import { widthSub, widthAdd, widthFilter, widthStartTyping, widthEndTyping } from './configIconWidth.js'
+import { colorPick, colorFilter, colorStartTyping, colorEndTyping } from './configIconColor.js'
+import { createCategoryList, selectCategory } from './categories.js'
+import { download } from './download.js'
+import { searchFilter } from './search.js'
+import { createItemList, selectItem } from './items.js'
 
 
 // INICIAR LISTA DE CATEGORIAS E DE ITENS --->
