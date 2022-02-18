@@ -4,7 +4,7 @@ Projeto pessoal montado para utilizar os conhecimentos que adquiri nos últimos 
 
 ## 🚀 Objetivo
 
-O objetivo é criar uma plataforma de download de ícones que seja fácil de entender e utilizar. É possível buscar por ícones e modificar a aparência deles antes de baixar.
+O objetivo era criar uma plataforma de download de ícones que seja fácil de entender e utilizar. É possível buscar por ícones e modificar a aparência deles antes de baixar.
 
 ## ✏️ Design
 
