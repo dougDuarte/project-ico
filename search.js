@@ -10,7 +10,6 @@ export const searchFilter = () => {
     const SEARCH_BAR = document.querySelector('[data-search-bar]')
     const ITEM = document.querySelectorAll('[data-item]')
     const SEARCH_TERM = SEARCH_BAR.value.toLowerCase()
-    console.log(SEARCH_TERM)
 
     for(let i = 0; i < ALL_ICONS.length; i++) {
         const ALL_TAGS = `${ALL_ICONS[i].title} ${ALL_ICONS[i].categories} ${ALL_ICONS[i].tags}`.split(' ').join('$')
