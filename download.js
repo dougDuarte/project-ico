@@ -1,6 +1,6 @@
 // IMPORTS E VARIÁVEIS --->
 
-import { ALL_ICONS, selectedItems } from '/items.js'
+import { ALL_ICONS, selectedItems } from './items.js'
 
 
 // FUNÇÕES --->

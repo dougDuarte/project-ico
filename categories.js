@@ -1,6 +1,6 @@
 // IMPORTS E VARIÁVEIS --->
 
-import { searchFilter } from "/search.js"
+import { searchFilter } from "./search.js"
 
 export const ALL_CATEGORIES = ['objetos', 'segurança', 'tempo', 'sinalização', 'design', 'menu', 'natureza', 'internet', 'social', 'e-commerce', 'localização']
 

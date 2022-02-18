@@ -1,7 +1,7 @@
 // IMPORTS E VARIÁVEIS --->
 
-import { ALL_ICONS } from '/items.js'
-import { ALL_CATEGORIES, currentCategory } from '/categories.js'
+import { ALL_ICONS } from './items.js'
+import { ALL_CATEGORIES, currentCategory } from './categories.js'
 
 
 // FUNÇÕES --->
