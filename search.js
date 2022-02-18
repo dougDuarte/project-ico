@@ -9,11 +9,13 @@ import { ALL_CATEGORIES, currentCategory } from './categories.js'
 export const searchFilter = () => {
     const SEARCH_BAR = document.querySelector('[data-search-bar]')
     const ITEM = document.querySelectorAll('[data-item]')
+    const SEARCH_TERM = SEARCH_BAR.value.toLowerCase()
+    console.log(SEARCH_TERM)
 
     for(let i = 0; i < ALL_ICONS.length; i++) {
         const ALL_TAGS = `${ALL_ICONS[i].title} ${ALL_ICONS[i].categories} ${ALL_ICONS[i].tags}`.split(' ').join('$')
 
-        if(ALL_ICONS[i].categories.includes(ALL_CATEGORIES[currentCategory]) && ALL_TAGS.includes(SEARCH_BAR.value)) {
+        if(ALL_ICONS[i].categories.includes(ALL_CATEGORIES[currentCategory]) && ALL_TAGS.includes(SEARCH_TERM)) {
             ITEM[i].classList.remove('--invisible')
         } else {
             ITEM[i].classList.add('--invisible')
