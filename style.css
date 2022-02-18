@@ -1,14 +1,14 @@
 :root {
     --color-bg-main: #121212;
-    --color-bg-menu: #0a0a0a;
-    --color-menu-button-hover: #0e0e0e;
+    --color-menu-button-hover: #0f0f0f;
     --color-border: #282828;
-    --color-border-hover: #353535;
+    --color-border-hover: #363636;
     --color-search-placeholder: #444444;
     --color-text-main: #cccccc;
     --color-text-secondary: #666666;
+    --width-border: 1px;
     --color-wrong: #eb4528;
-    --color-icon: #cedc04;
+    --color-icon: #a7b300;
     --size-icon: 40px;
     --width-icon: 1px;
 }
@@ -22,16 +22,18 @@ body {
 /* MENU LATERAL -----> */
 
 .menu {
-    background-color: var(--color-bg-menu);
-    min-width: 320px;
-    max-width: 320px;
-    min-height: 100vh;
+    position: fixed;
+    background-color: var(--color-bg-main);
+    border-right: var(--width-border) solid var(--color-border);
+    width: 320px;
+    height: 100vh;
     padding: 32px;
+    overflow-y: auto;
+    z-index: 10;
+    transition: 0.4s transform;
 }
 
 .config_wrapper {
-    position: sticky;
-    top: 32px;
     display: flex;
     flex-direction: column;
 }
@@ -44,21 +46,47 @@ body {
 
 .config {
     display: flex;
+    justify-content: center;
     margin-bottom: 24px;
     height: 48px;
 }
 
+.config:first-child {
+    display: none;
+}
+
+.mobile_button {
+    height: 100%;
+    aspect-ratio: 1;
+    border: var(--width-border) solid var(--color-border);
+    cursor: pointer;
+}
+
+.mobile_button svg {
+    width: 24px;
+    stroke: var(--color-text-main);
+    stroke-width: 1;
+}
+
+.main_bar_wrapper .mobile_button {
+    display: none;
+}
+
+.mobile_button:hover {
+    background-color: var(--color-menu-button-hover);
+}
+
 .config_input {
     width: 100%;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    border-top: var(--width-border) solid var(--color-border);
+    border-bottom: var(--width-border) solid var(--color-border);
     color: var(--color-text-main);
     text-align: center;
     font-size: 16px;
 }
 
-.config:nth-child(6) .config_input {
-    border-left: 1px solid var(--color-border);
+.config:nth-child(8) .config_input {
+    border-left: var(--width-border) solid var(--color-border);
 }
 
 .config_input:focus {
@@ -68,26 +96,29 @@ body {
 .config_button {
     height: 100%;
     aspect-ratio: 1;
-    border: 1px solid var(--color-border);
+    border: var(--width-border) solid var(--color-border);
     cursor: pointer;
 }
 
 .config_button svg {
-    width: 50%;
+    width: 25px;
     stroke: var(--color-text-main);
+    stroke-width: 1;
 }
 
-.config_button:hover {
+.config_button:hover:not(.--config_button-disabled) {
     background-color: var(--color-menu-button-hover);
 }
 
-.config_button:active svg {
-    width: 50%;
+.config_button:active:not(.--config_button-disabled) svg {
+    width: 33px;
 }
 
 .color_picker_wrapper {
     position: relative;
-    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .color_picker {
@@ -102,39 +133,58 @@ body {
 
 .color_picker_preview {
     background-color: var(--color-icon);
-    width: 100%;
-    height: 100%;
+    width: 16px;
+    height: 16px;
 }
 
 .category_list {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 24px;
-    border-top: 1px solid var(--color-border);
-    border-right: 1px solid var(--color-border);
+    border-top: var(--width-border) solid var(--color-border);
+    border-right: var(--width-border) solid var(--color-border);
 }
 
 .category_button {
     width: 50%;
     height: 48px;
-    border-bottom: 1px solid var(--color-border);
-    border-left: 1px solid var(--color-border);
+    border-bottom: var(--width-border) solid var(--color-border);
+    border-left: var(--width-border) solid var(--color-border);
     color: var(--color-text-secondary);
     text-transform: capitalize;
     font-size: 16px;
     cursor:pointer;
 }
 
-.category_button:hover {
+.category_button svg {
+    width: 24px;
+    stroke: var(--color-text-secondary);
+    stroke-width: 1;
+}
+
+.category_button:hover:not(.--category-selected) {
     background-color: var(--color-menu-button-hover);
 }
 
 .download_button {
-    background-color: var(--color-text-secondary);
+    background-color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 48px;
-    color: var(--color-bg-menu);
+    color: var(--color-bg-main);
     font-size: 16px;
     cursor: pointer;
+}
+
+.download_button::selection {
+    background: none;
+}
+
+.download_button:hover:not(.--download_button-disabled) {
+    background: none;
+    color: var(--color-text-main);
+    border: var(--width-border) solid var(--color-text-main);
 }
 
 
@@ -142,7 +192,8 @@ body {
 
 .content {
     width: 100%;
-    padding: 32px;
+    padding: 32px 32px 32px 352px;
+    transition: 0.4s padding;
 }
 
 
@@ -155,13 +206,19 @@ header {
 
 h1 {
     margin-bottom: 12px;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
 }
 
 header p {
     font-size: 14px;
     line-height: 1.4;
+}
+
+.main_bar_wrapper {
+    display: flex;
+    column-gap: 24px;
+    height: 48px;
 }
 
 
@@ -171,20 +228,26 @@ header p {
     position: relative;
     display: flex;
     align-items: center;
-    height: 48px;
+    width: 100%;
 }
 
 .search_bar_wrapper svg {
     position: absolute;
     left: 14px;
-    stroke: var(--color-text-secondary)
+    width: 24px;
+    stroke: var(--color-text-secondary);
+    stroke-width: 1;
+}
+
+.search_bar_wrapper:focus-within svg {
+    stroke: var(--color-text-main);
 }
 
 .search_bar {
     width: 100%;
     height: 100%;
     padding: 0px 16px 0px 48px;
-    border: 1px solid var(--color-border);
+    border: var(--width-border) solid var(--color-border);
     color: var(--color-text-main);
     font-size: 16px;
 }
@@ -208,6 +271,10 @@ header p {
     font-weight: 700;
 }
 
+.search_result span:nth-child(2) {
+    text-transform: capitalize;
+}
+
 
 /* LISTA DE ÍCONES -----> */
 
@@ -223,11 +290,11 @@ header p {
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
-    border: 1px solid var(--color-border);
+    border: var(--width-border) solid var(--color-border);
     cursor: crosshair;
 }
 
-.item:hover {
+.item:hover:not(.--item-selected) {
     border-color: var(--color-border-hover);
 }
 
@@ -240,24 +307,60 @@ header p {
 
 /* STATE MACHINE -----> */
 
-.--input-wrong:focus {
-    border-bottom-color: var(--color-wrong);
-}
-
 .--invisible {
     display: none;
 }
 
-.--button_menu-selected {
-    border-bottom: 4px solid var(--color-text-main);
-    color: var(--color-text-main);
+.--input-wrong:focus {
+    border-bottom-color: var(--color-wrong);
 }
 
-.--download_button-active {
-    background-color: var(--color-text-main);
-    font-weight: 700;
+.--config_button-disabled {
+    cursor: default;
+}
+
+.--config_button-disabled svg {
+    stroke: var(--color-border);
+}
+
+.--category-selected {
+    background-color: var(--color-menu-button-hover);
+    border-bottom-color: var(--color-text-main);
+    color: var(--color-text-main);
+    cursor: default;
+}
+
+.--category-selected svg {
+    stroke: var(--color-text-main);
+}
+
+.--download_button-disabled {
+    background-color: var(--color-text-secondary);
+    cursor: default;
 }
 
 .--item-selected {
     border-color: var(--color-icon);
+}
+
+
+/* MEDIA QUERIES -----> */
+
+@media screen and (max-width: 840px) {
+
+    .main_bar_wrapper .mobile_button {
+        display: initial;
+    }
+
+    .config:first-child {
+        display: flex;
+    }
+
+    .content {
+        padding-left: 24px;
+    }
+
+    .--menu_mobile-closed {
+        transform: translateX(-320px);
+    }
 }

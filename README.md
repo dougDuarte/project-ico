@@ -1,6 +1,6 @@
 # Project ICO
 
-Projeto pessoal montado para utilizar os conhecimentos que adquiri nos últimos meses. Estou me divertindo demais com ele!
+Projeto pessoal montado para utilizar os conhecimentos que adquiri nos últimos meses. Me diverti demais com o desenvolvimento dele!
 
 ## 🚀 Objetivo
 
@@ -8,23 +8,26 @@ O objetivo é criar uma plataforma de download de ícones que seja fácil de ent
 
 ## ✏️ Design
 
-Estou utilizando apenas CSS vanilla para a estilização. O design final será 100% responsivo e contará com um switch para light e dark mode.
+Utilizei apenas CSS vanilla para a estilização. O design é 100% responsivo e conta com um switch para light e dark mode.
 
 ## 💻 Features
 
 * Busca dinâmica que retorna os resultados em tempo real
-* Opção de modificação da largura dos ícones
-* Opção de modificação da cor dos ícones
-* Opção de modificação do tamanho dos ícones
-* Download de um ou vários ícones de uma vez
+* Filtragem dos resultados com categorias
+* Opções de modificação de tamanho, largura e cor dos ícones
+* Download de um ou vários ícones de uma vez (work in progress)
 * Fácil adição de novos ícones à plataforma
+* Dark e light modes
 
-## 💻 O que eu aprendi/fortaleci
+## 💡 Aprendizado
 
 * Tratamento de texto nos campos de input principais
 * Manipulação de SVGs
 * Verificação e correção de bugs em vários navegadores
-* Modularização
+* Modularização do código
+* Utilização do "blob" no JS
+* Um pouco de CSS Grid
+* Reutilização de CSS
 
 ## 😀 Quer falar comigo?
 

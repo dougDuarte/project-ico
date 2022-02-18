@@ -1,18 +1,41 @@
-import { createItemList } from '/items.js'
-import { createCategoryList } from '/categories.js'
-import { searchFilter } from '/search.js'
+// IMPORTS --->
+
+import { selectTheme } from '/theme.js'
+import { openMenu, closeMenu, queryCloseMenu } from '/mobileMenu.js'
 import { sizeSub, sizeAdd, sizeFilter, sizeStartTyping, sizeEndTyping } from '/configIconSize.js'
 import { widthSub, widthAdd, widthFilter, widthStartTyping, widthEndTyping } from '/configIconWidth.js'
 import { colorPick, colorFilter, colorStartTyping, colorEndTyping } from '/configIconColor.js'
+import { createCategoryList, selectCategory } from '/categories.js'
+import { download } from '/download.js'
+import { searchFilter } from '/search.js'
+import { createItemList, selectItem } from '/items.js'
+
+
+// INICIAR LISTA DE CATEGORIAS E DE ITENS --->
 
 createCategoryList()
 createItemList()
 
 
+// ABRIR MENU MOBILE --->
+
+const OPEN_MENU_BUTTON = document.querySelector('[data-mobile-open]')
+OPEN_MENU_BUTTON.addEventListener('click', () => openMenu())
+
+
+// FECHAR MENU MOBILE --->
+
+const CLOSE_MENU_BUTTON = document.querySelector('[data-mobile-close]')
+CLOSE_MENU_BUTTON.addEventListener('click', () => closeMenu())
+
+const QUERY = window.matchMedia("(max-width: 840px)")
+QUERY.addEventListener('change', (event) => queryCloseMenu(event))
+
+
 // FILTRAR O RESULTADO DA PESQUISA --->
 
 const SEARCH_BAR = document.querySelector('[data-search-bar]')
-SEARCH_BAR.addEventListener('input', (event) => searchFilter(event.target))
+SEARCH_BAR.addEventListener('input', () => searchFilter())
 
 
 // TROCAR O TAMANHO DOS ÍCONES --->
@@ -47,3 +70,27 @@ COLOR_PICKER.addEventListener('input', (event) => colorPick(event.target, COLOR_
 COLOR_TEXT.addEventListener('input', (event) => colorFilter(event.target, COLOR_PICKER))
 COLOR_TEXT.addEventListener('focus', (event) => colorStartTyping(event.target))
 COLOR_TEXT.addEventListener('blur', (event) => colorEndTyping(event.target))
+
+
+// SELECIONAR CATEGORIA --->
+
+const CATEGORIES = document.querySelectorAll('[data-category]')
+CATEGORIES.forEach((elem, index) => elem.addEventListener('click', () => selectCategory(CATEGORIES, elem, index)))
+
+
+// SELECIONAR TEMA --->
+
+const THEMES = document.querySelectorAll('[data-theme]')
+THEMES.forEach((elem, index) => elem.addEventListener('click', () => selectTheme(THEMES, elem, index)))
+
+
+// SELECIONAR ITENS --->
+
+const ITENS = document.querySelectorAll('[data-item]')
+ITENS.forEach((elem, index) => elem.addEventListener('click', () => selectItem(elem, index)))
+
+
+// FAZER DOWNLOAD DE UM OU MAIS ITENS --->
+
+/* const DOWNLOAD_BUTTON = document.querySelector('[data-download-button]')
+DOWNLOAD_BUTTON.addEventListener('click', (event) => download(event.target)) */

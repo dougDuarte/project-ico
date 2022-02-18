@@ -1,116 +1,125 @@
+// IMPORTS E VARIÁVEIS --->
+
 import { SVG_LAYOUT, SVG_FIRE, SVG_AT, SVG_BOLT, SVG_CLOUD, SVG_CALENDAR, SVG_CART, SVG_CHAT, SVG_SECURE, SVG_CHECK, SVG_DOTS_HORIZONTAL, SVG_DOTS_VERTICAL, SVG_PENCIL, SVG_PADLOCK, SVG_MAP, SVG_MAP_MARKER, SVG_MOON, SVG_BELL, SVG_GEAR, SVG_THUMB_UP, SVG_X, SVG_MAGNIFYING_GLASS } from '/icons.js'
+
+import { downloadButton } from '/download.js'
 
 export const ALL_ICONS = [
     {icon: SVG_LAYOUT,
     title: 'layout',
-    categories: 'design menu',
-    tags: 'layout design menu organização'},
+    categories: 'todos design menu',
+    tags: 'organização'},
 
     {icon: SVG_FIRE,
     title: 'fogo',
-    categories: 'natureza sinalização',
-    tags: 'fogo natureza sinalização quente calor chama perigo cuidado aviso'},
+    categories: 'todos natureza sinalização',
+    tags: 'quente calor chama perigo cuidado aviso'},
 
     {icon: SVG_AT,
     title: 'arroba',
-    categories: 'internet social',
-    tags: 'arroba internet social email e-mail'},
+    categories: 'todos internet social',
+    tags: 'email e-mail'},
 
     {icon: SVG_BOLT,
     title: 'raio',
-    categories: 'natureza sinalização',
-    tags: 'raio natureza sinalização eletricidade perigo cuidado aviso'},
+    categories: 'todos natureza sinalização',
+    tags: 'eletricidade perigo cuidado aviso'},
 
     {icon: SVG_CLOUD,
     title: 'nuvem',
-    categories: 'internet natureza',
-    tags: 'nuvem internet natureza servidor'},
+    categories: 'todos internet natureza',
+    tags: 'servidor'},
 
     {icon: SVG_CALENDAR,
     title: 'calendário',
-    categories: 'tempo',
-    tags: 'calendário tempo dia mês ano compromisso'},
+    categories: 'todos tempo',
+    tags: 'dia mês ano compromisso'},
 
     {icon: SVG_CART,
     title: 'carrinho',
-    categories: 'e-commerce objetos menu',
-    tags: 'carrinho e-commerce objetos menu ecommerce loja compras mercado'},
+    categories: 'todos e-commerce objetos menu',
+    tags: 'ecommerce loja compras mercado'},
 
     {icon: SVG_CHAT,
     title: 'chat',
-    categories: 'internet social menu',
-    tags: 'chat internet social menu balão fala conversa'},
+    categories: 'todos internet social menu',
+    tags: 'balão fala conversa'},
 
     {icon: SVG_SECURE,
     title: 'seguro',
-    categories: 'internet segurança',
-    tags: 'seguro internet segurança escudo certo'},
+    categories: 'todos internet segurança',
+    tags: 'escudo certo'},
 
     {icon: SVG_CHECK,
     title: 'certo',
-    categories: 'menu',
-    tags: 'certo menu correto aprovado preenchido'},
+    categories: 'todos menu',
+    tags: 'correto aprovado preenchido'},
 
     {icon: SVG_DOTS_HORIZONTAL,
     title: 'pontos horizontais',
-    categories: 'menu',
-    tags: 'pontos horizontais menu sanduíche hambúrguer'},
+    categories: 'todos menu',
+    tags: 'sanduíche hambúrguer'},
 
     {icon: SVG_DOTS_VERTICAL,
     title: 'pontos verticais',
-    categories: 'menu',
-    tags: 'pontos verticais menu sanduíche hambúrguer'},
+    categories: 'todos menu',
+    tags: 'sanduíche hambúrguer'},
 
     {icon: SVG_PENCIL,
     title: 'lápis',
-    categories: 'design objetos',
-    tags: 'lápis design objetos escrita caneta'},
+    categories: 'todos design objetos',
+    tags: 'escrita caneta'},
 
     {icon: SVG_PADLOCK,
     title: 'cadeado',
-    categories: 'segurança objetos',
-    tags: 'cadeado segurança objetos fechadura chave trancado fechado'},
+    categories: 'todos segurança objetos',
+    tags: 'fechadura chave trancado fechado'},
 
     {icon: SVG_MAP,
     title: 'mapa',
-    categories: 'localização objetos',
-    tags: 'mapa localização objetos lugar'},
+    categories: 'todos localização objetos',
+    tags: 'lugar'},
 
     {icon: SVG_MAP_MARKER,
     title: 'marcador de mapa',
-    categories: 'localização',
-    tags: 'marcador de mapa localização lugar'},
+    categories: 'todos localização',
+    tags: 'lugar'},
 
     {icon: SVG_MOON,
     title: 'lua',
-    categories: 'natureza menu',
-    tags: 'lua natureza menu noite escuro'},
+    categories: 'todos natureza menu',
+    tags: 'noite escuro'},
 
     {icon: SVG_BELL,
     title: 'sino',
-    categories: 'objetos sinalização menu',
-    tags: 'sino objetos sinalização menu notificação sininho'},
+    categories: 'todos objetos sinalização menu',
+    tags: 'notificação sininho'},
 
     {icon: SVG_GEAR,
     title: 'engrenagem',
-    categories: 'menu objetos',
-    tags: 'engrenagem menu objetos configuração'},
+    categories: 'todos menu objetos',
+    tags: 'configuração'},
 
     {icon: SVG_THUMB_UP,
     title: 'joínha',
-    categories: 'internet social',
-    tags: 'joínha internet social joia legal mão'},
+    categories: 'todos internet social',
+    tags: 'joia legal mão'},
 
     {icon: SVG_X,
     title: 'xis',
-    categories: 'menu',
-    tags: 'xis menu fechar excluir sair errado negado'},
+    categories: 'todos menu',
+    tags: 'fechar excluir sair errado negado'},
 
     {icon: SVG_MAGNIFYING_GLASS,
     title: 'lupa',
-    categories: 'menu objetos',
-    tags: 'lupa menu objetos procurar pesquisar achar encontrar'}
+    categories: 'todos menu objetos',
+    tags: 'procurar pesquisar achar encontrar'}
 ]
+
+export let selectedItems = []
+
+
+// FUNÇÕES --->
 
 const createItem = (obj) => {
     const ITEM_LIST = document.querySelector('[data-item-list]')
@@ -129,4 +138,17 @@ export const createItemList = () => {
     for(let i = 0; i < ALL_ICONS.length; i++) {
         createItem(ALL_ICONS[i])
     }
+}
+
+export const selectItem = (elem, index) => {
+    if(selectedItems.includes(ALL_ICONS[index])) {
+        const i = selectedItems.indexOf(ALL_ICONS[index])
+        selectedItems.splice(i, 1)
+
+    } else {
+        selectedItems.push(ALL_ICONS[index])
+    }
+
+    elem.classList.toggle('--item-selected')
+    downloadButton()
 }

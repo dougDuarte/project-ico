@@ -1,5 +1,9 @@
-const ROOT = document.querySelector(':root')
-let iconColor = 'cedc04'
+// IMPORTS E VARIÁVEIS --->
+
+export let iconColor = 'cedc04'
+
+
+// FUNÇÕES --->
 
 export const colorPick = (picker, text) => {
     iconColor = picker.value.substring(1)
@@ -28,5 +32,6 @@ export const colorEndTyping = (elem) => {
 }
 
 const updateIcons = () => {
+    const ROOT = document.querySelector(':root')
     ROOT.style.setProperty('--color-icon', `#${iconColor}`)
 }
