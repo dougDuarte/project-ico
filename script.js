@@ -21,11 +21,12 @@ createItemList()
 
 const MENU_SHADOW = document.querySelector('[data-menu-shadow]');
 const BODY = document.querySelector('body');
-const HAMMER_TARGET = new Hammer(BODY);
+const MENU = document.querySelector('[data-menu]')
+const HAMMER_TARGETS = [new Hammer(BODY), new Hammer(MENU)]
 
 const OPEN_MENU_BUTTON = document.querySelector('[data-mobile-open]')
 OPEN_MENU_BUTTON.addEventListener('click', () => openMenu(MENU_SHADOW))
-HAMMER_TARGET.on('swiperight', () => openMenu(MENU_SHADOW))
+HAMMER_TARGETS[0].on('swiperight', () => openMenu(MENU_SHADOW))
 
 
 // FECHAR MENU MOBILE --->
@@ -33,7 +34,7 @@ HAMMER_TARGET.on('swiperight', () => openMenu(MENU_SHADOW))
 const QUERY = window.matchMedia('(min-width: 841px)')
 QUERY.addEventListener('change', (event) => closeMenuQuery(event, MENU_SHADOW))
 MENU_SHADOW.addEventListener('click', (event) => closeMenu(event.target))
-HAMMER_TARGET.on("swipeleft", () => closeMenu(MENU_SHADOW))
+HAMMER_TARGETS.forEach((elem) => elem.on("swipeleft", () => closeMenu(MENU_SHADOW)))
 
 
 // FILTRAR O RESULTADO DA PESQUISA --->
