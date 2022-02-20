@@ -37,8 +37,8 @@ export const ALL_ICONS = [
 
     {icon: SVG_CART,
     title: 'carrinho',
-    categories: 'todos e-commerce objetos menu',
-    tags: 'ecommerce loja compras mercado'},
+    categories: 'todos loja objetos menu',
+    tags: 'compras mercado'},
 
     {icon: SVG_CHAT,
     title: 'chat',

@@ -17,6 +17,7 @@ Utilizei apenas CSS vanilla para a estilização. O design é 100% responsivo e 
 * Opções de modificação de tamanho, largura e cor dos ícones
 * Download de um ou vários ícones de uma vez (work in progress)
 * Fácil adição de novos ícones à plataforma
+* Menu mobile totalmente funcional e responsivo
 * Dark e light modes
 
 ## 💡 Aprendizado
@@ -28,6 +29,7 @@ Utilizei apenas CSS vanilla para a estilização. O design é 100% responsivo e 
 * Utilização do "blob" no JS
 * Um pouco de CSS Grid
 * Reutilização de CSS
+* Responsividade
 
 ## 😀 Quer falar comigo?
 

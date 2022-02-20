@@ -2,7 +2,7 @@
 
 import { searchFilter } from "./search.js"
 
-export const ALL_CATEGORIES = ['objetos', 'segurança', 'tempo', 'sinalização', 'design', 'menu', 'natureza', 'internet', 'social', 'e-commerce', 'localização']
+export const ALL_CATEGORIES = ['objetos', 'segurança', 'tempo', 'sinalização', 'design', 'menu', 'natureza', 'internet', 'social', 'loja', 'localização']
 
 export let currentCategory = 0
 

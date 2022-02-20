@@ -11,13 +11,6 @@
 <body>
     <aside class="menu --menu_mobile-closed" data-menu>
         <section class="config_wrapper">
-
-            <div class="config">
-                <button class="mobile_button" data-mobile-close>
-                    <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M18,6 L6,18 M6,6 L18,18"></path></svg>
-                </button>
-            </div>
-
             <div class="category_list">
                 <button class="category_button --category-selected" data-theme>
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M12.7938533,4 C14.1371822,6.54211004 13.7098609,9.65776368 11.7316963,11.7443209 C9.75353168,13.830878 6.66508032,14.4236421 4.05498985,13.2177053 C4.69798975,17.3316447 8.38215596,20.2693718 12.5360028,19.9804027 C16.6898496,19.6914337 19.9317615,16.2718828 19.9989388,12.1085387 C20.0661161,7.94519466 16.9362149,4.42283187 12.7938533,4 L12.7938533,4 Z"></path></svg>
@@ -67,17 +60,22 @@
             <h2>Categorias</h2>
             <div class="category_list" data-category-list></div>
 
-            <a class="download_button --download_button-disabled" data-download-button role="button">Nenhum ícone selecionado</a>
+            <a class="download_button --download_button-disabled" data-download-button role="button">Selecione seus ícones</a>
         </section>
     </aside>
+
+    <div class="menu_shadow --invisible" data-menu-shadow></div>
 
     <div class="content">
         <header>
             <h1>Project ICO</h1>
-            <p>Criado por Douglas Duarte, para fins de estudo (HTML, CSS e JS).
-            <br>* Implementar sistema de download funcional.
-            <br>* Implementar aviso quando a pesquisa não encontrar nada.
-            <br>* Implementar recursos de acessibilidade.
+            <p>Criado para fins de estudo em HTML, CSS e JS
+            <br>Acesse meu
+            <a href="https://www.linkedin.com/in/douglasdduarte/" target="_blank">LinkedIn</a>
+            e <a href="https://github.com/dougDuarte" target="_blank">Github</a>
+            <br>* Add sistema de download funcional
+            <br>* Add aviso caso a pesquisa não retorne nada
+            <br>* Add recursos de acessibilidade
             <br><br>"Não diga palavras, diga coisas."</p>
         </header>
 
@@ -100,6 +98,7 @@
         </main>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script type="module" src="script.js"></script>
 </body>
 </html>

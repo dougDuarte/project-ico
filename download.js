@@ -10,7 +10,7 @@ export const downloadButton = () => {
 
     if(selectedItems.length === 0) {
         DOWNLOAD_BUTTON.classList.add('--download_button-disabled')
-        DOWNLOAD_BUTTON.innerText = 'Nenhum ícone selecionado'
+        DOWNLOAD_BUTTON.innerText = 'Selecione seus ícones'
     } else {
         DOWNLOAD_BUTTON.classList.remove('--download_button-disabled')
 

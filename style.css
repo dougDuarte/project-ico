@@ -25,12 +25,13 @@ body {
     position: fixed;
     background-color: var(--color-bg-main);
     border-right: var(--width-border) solid var(--color-border);
+    flex-grow: 1;
     width: 320px;
-    height: 100vh;
+    height: 100%;
     padding: 32px;
     overflow-y: auto;
     z-index: 10;
-    transition: 0.4s transform;
+    transition: 0.4s width, 0.4s transform;
 }
 
 .config_wrapper {
@@ -55,27 +56,6 @@ body {
     display: none;
 }
 
-.mobile_button {
-    height: 100%;
-    aspect-ratio: 1;
-    border: var(--width-border) solid var(--color-border);
-    cursor: pointer;
-}
-
-.mobile_button svg {
-    width: 24px;
-    stroke: var(--color-text-main);
-    stroke-width: 1;
-}
-
-.main_bar_wrapper .mobile_button {
-    display: none;
-}
-
-.mobile_button:hover {
-    background-color: var(--color-menu-button-hover);
-}
-
 .config_input {
     width: 100%;
     border-top: var(--width-border) solid var(--color-border);
@@ -85,7 +65,7 @@ body {
     font-size: 16px;
 }
 
-.config:nth-child(8) .config_input {
+.config:nth-child(7) .config_input {
     border-left: var(--width-border) solid var(--color-border);
 }
 
@@ -190,6 +170,14 @@ body {
 
 /* CONTEÚDO PRINCIPAL -----> */
 
+.menu_shadow {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.3;
+    z-index: 1;
+}
+
 .content {
     width: 100%;
     padding: 32px 32px 32px 352px;
@@ -213,6 +201,11 @@ h1 {
 header p {
     font-size: 14px;
     line-height: 1.4;
+}
+
+header p a {
+    color: var(--color-icon);
+    font-weight: 700;
 }
 
 .main_bar_wrapper {
@@ -241,6 +234,24 @@ header p {
 
 .search_bar_wrapper:focus-within svg {
     stroke: var(--color-text-main);
+}
+
+.mobile_button {
+    display: none;
+    height: 100%;
+    aspect-ratio: 1;
+    border: var(--width-border) solid var(--color-border);
+    cursor: pointer;
+}
+
+.mobile_button svg {
+    width: 24px;
+    stroke: var(--color-text-main);
+    stroke-width: 1;
+}
+
+.mobile_button:hover {
+    background-color: var(--color-menu-button-hover);
 }
 
 .search_bar {
@@ -280,9 +291,10 @@ header p {
 
 .item_list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(128px, min-content));
+    grid-template-columns: repeat(auto-fit, 128px);
     gap: 24px;
     margin-top: 24px;
+    transition: 0.4s gap;
 }
 
 .item {
@@ -347,20 +359,34 @@ header p {
 /* MEDIA QUERIES -----> */
 
 @media screen and (max-width: 840px) {
-
-    .main_bar_wrapper .mobile_button {
-        display: initial;
-    }
-
-    .config:first-child {
-        display: flex;
-    }
-
     .content {
-        padding-left: 24px;
+        padding-left: 32px;
+    }
+
+    .mobile_button {
+        display: initial;
     }
 
     .--menu_mobile-closed {
         transform: translateX(-320px);
+    }
+}
+
+@media screen and (max-width: 432px) {
+    .menu {
+        width: 288px;
+    }
+
+    .content {
+        padding: 16px;
+    }
+
+    .item_list {
+        grid-template-columns: repeat(auto-fit, 104px);
+        gap: 8px;
+    }
+
+    .--menu_mobile-closed {
+        transform: translateX(-288px);
     }
 }
