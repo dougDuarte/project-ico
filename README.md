@@ -15,8 +15,7 @@ Utilizei apenas CSS vanilla para a estilização. O design é 100% responsivo e 
 * Busca dinâmica que retorna os resultados em tempo real
 * Filtragem dos resultados com categorias
 * Opções de modificação de tamanho, largura e cor dos ícones
-* Download de um ou vários ícones de uma vez (work in progress)
-* Fácil adição de novos ícones à plataforma
+* Download de um ou vários ícones de uma vez
 * Menu mobile totalmente funcional e responsivo
 * Dark e light modes
 
@@ -26,7 +25,7 @@ Utilizei apenas CSS vanilla para a estilização. O design é 100% responsivo e 
 * Manipulação de SVGs
 * Verificação e correção de bugs em vários navegadores
 * Modularização do código
-* Utilização do "blob" no JS
+* Utilização de bibliotecas
 * Um pouco de CSS Grid
 * Reutilização de CSS
 * Responsividade

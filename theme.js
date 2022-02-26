@@ -21,6 +21,7 @@ const colorScheme = () => {
     const ROOT = document.querySelector(':root')
 
     if(currentTheme === 0) {
+        ROOT.style.setProperty('--color-shadow', '#000000')
         ROOT.style.setProperty('--color-bg-main', '#121212')
         ROOT.style.setProperty('--color-menu-button-hover', '#0f0f0f')
         ROOT.style.setProperty('--color-border', '#282828')
@@ -29,6 +30,7 @@ const colorScheme = () => {
         ROOT.style.setProperty('--color-text-main', '#dddddd')
         ROOT.style.setProperty('--color-text-secondary', '#666666')
     } else {
+        ROOT.style.setProperty('--color-shadow', '#dddddd')
         ROOT.style.setProperty('--color-bg-main', '#fefefe')
         ROOT.style.setProperty('--color-menu-button-hover', '#f8f8f8')
         ROOT.style.setProperty('--color-border', '#dfdfdf')

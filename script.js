@@ -8,7 +8,7 @@ import { colorPick, colorFilter, colorStartTyping, colorEndTyping } from './conf
 import { createCategoryList, selectCategory } from './categories.js'
 import { download } from './download.js'
 import { searchFilter } from './search.js'
-import { createItemList, selectItem } from './items.js'
+import { createItemList, selectItem, deselectItems } from './items.js'
 
 
 // INICIAR LISTA DE CATEGORIAS E DE ITENS --->
@@ -19,22 +19,24 @@ createItemList()
 
 // ABRIR MENU MOBILE --->
 
-const MENU_SHADOW = document.querySelector('[data-menu-shadow]');
-const BODY = document.querySelector('body');
+const HTML = document.querySelector('html');
 const MENU = document.querySelector('[data-menu]')
-const HAMMER_TARGETS = [new Hammer(BODY), new Hammer(MENU)]
+const MENU_SHADOW = document.querySelector('[data-menu-shadow]');
+
+delete Hammer.defaults.cssProps.userSelect
+const HAMMER_TARGET = new Hammer(HTML)
 
 const OPEN_MENU_BUTTON = document.querySelector('[data-mobile-open]')
-OPEN_MENU_BUTTON.addEventListener('click', () => openMenu(MENU_SHADOW))
-HAMMER_TARGETS[0].on('swiperight', () => openMenu(MENU_SHADOW))
+OPEN_MENU_BUTTON.addEventListener('click', () => openMenu(MENU, MENU_SHADOW))
+HAMMER_TARGET.on('swiperight', () => openMenu(MENU, MENU_SHADOW))
 
 
 // FECHAR MENU MOBILE --->
 
 const QUERY = window.matchMedia('(min-width: 841px)')
-QUERY.addEventListener('change', (event) => closeMenuQuery(event, MENU_SHADOW))
-MENU_SHADOW.addEventListener('click', (event) => closeMenu(event.target))
-HAMMER_TARGETS.forEach((elem) => elem.on("swipeleft", () => closeMenu(MENU_SHADOW)))
+QUERY.addEventListener('change', (event) => closeMenuQuery(event, MENU, MENU_SHADOW))
+MENU_SHADOW.addEventListener('click', (event) => closeMenu(MENU, event.target))
+HAMMER_TARGET.on('swipeleft', () => closeMenu(MENU, MENU_SHADOW))
 
 
 // FILTRAR O RESULTADO DA PESQUISA --->
@@ -91,11 +93,17 @@ THEMES.forEach((elem, index) => elem.addEventListener('click', () => selectTheme
 
 // SELECIONAR ITENS --->
 
-const ITENS = document.querySelectorAll('[data-item]')
-ITENS.forEach((elem, index) => elem.addEventListener('click', () => selectItem(elem, index)))
+const ITEMS = document.querySelectorAll('[data-item]')
+ITEMS.forEach((elem, index) => elem.addEventListener('click', () => selectItem(elem, index)))
+
+
+// DESSELECIONAR ITENS --->
+
+const DESELECT_ALL_BUTTON = document.querySelector('[data-deselect-all-button]')
+DESELECT_ALL_BUTTON.addEventListener('click', () => deselectItems(ITEMS))
 
 
 // FAZER DOWNLOAD DE UM OU MAIS ITENS --->
 
-/* const DOWNLOAD_BUTTON = document.querySelector('[data-download-button]')
-DOWNLOAD_BUTTON.addEventListener('click', (event) => download(event.target)) */
+const DOWNLOAD_BUTTON = document.querySelector('[data-download-button]')
+DOWNLOAD_BUTTON.addEventListener('click', () => download())

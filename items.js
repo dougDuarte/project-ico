@@ -1,133 +1,22 @@
 // IMPORTS E VARIÁVEIS --->
 
-import { SVG_LAYOUT, SVG_FIRE, SVG_AT, SVG_BOLT, SVG_CLOUD, SVG_CALENDAR, SVG_CART, SVG_CHAT, SVG_SECURE, SVG_CHECK, SVG_DOTS_HORIZONTAL, SVG_DOTS_VERTICAL, SVG_PENCIL, SVG_PADLOCK, SVG_MAP, SVG_MAP_MARKER, SVG_MOON, SVG_BELL, SVG_GEAR, SVG_THUMB_UP, SVG_X, SVG_MAGNIFYING_GLASS } from './icons.js'
-
+import { ALL_ICONS } from './icons.js'
 import { downloadButton } from './download.js'
-
-export const ALL_ICONS = [
-    {icon: SVG_LAYOUT,
-    title: 'layout',
-    categories: 'todos design menu',
-    tags: 'organização'},
-
-    {icon: SVG_FIRE,
-    title: 'fogo',
-    categories: 'todos natureza sinalização',
-    tags: 'quente calor chama perigo cuidado aviso'},
-
-    {icon: SVG_AT,
-    title: 'arroba',
-    categories: 'todos internet social',
-    tags: 'email e-mail'},
-
-    {icon: SVG_BOLT,
-    title: 'raio',
-    categories: 'todos natureza sinalização',
-    tags: 'eletricidade perigo cuidado aviso'},
-
-    {icon: SVG_CLOUD,
-    title: 'nuvem',
-    categories: 'todos internet natureza',
-    tags: 'servidor'},
-
-    {icon: SVG_CALENDAR,
-    title: 'calendário',
-    categories: 'todos tempo',
-    tags: 'dia mês ano compromisso'},
-
-    {icon: SVG_CART,
-    title: 'carrinho',
-    categories: 'todos loja objetos menu',
-    tags: 'compras mercado'},
-
-    {icon: SVG_CHAT,
-    title: 'chat',
-    categories: 'todos internet social menu',
-    tags: 'balão fala conversa'},
-
-    {icon: SVG_SECURE,
-    title: 'seguro',
-    categories: 'todos internet segurança',
-    tags: 'escudo certo'},
-
-    {icon: SVG_CHECK,
-    title: 'certo',
-    categories: 'todos menu',
-    tags: 'correto aprovado preenchido'},
-
-    {icon: SVG_DOTS_HORIZONTAL,
-    title: 'pontos horizontais',
-    categories: 'todos menu',
-    tags: 'sanduíche hambúrguer'},
-
-    {icon: SVG_DOTS_VERTICAL,
-    title: 'pontos verticais',
-    categories: 'todos menu',
-    tags: 'sanduíche hambúrguer'},
-
-    {icon: SVG_PENCIL,
-    title: 'lápis',
-    categories: 'todos design objetos',
-    tags: 'escrita caneta'},
-
-    {icon: SVG_PADLOCK,
-    title: 'cadeado',
-    categories: 'todos segurança objetos',
-    tags: 'fechadura chave trancado fechado'},
-
-    {icon: SVG_MAP,
-    title: 'mapa',
-    categories: 'todos localização objetos',
-    tags: 'lugar'},
-
-    {icon: SVG_MAP_MARKER,
-    title: 'marcador de mapa',
-    categories: 'todos localização',
-    tags: 'lugar'},
-
-    {icon: SVG_MOON,
-    title: 'lua',
-    categories: 'todos natureza menu',
-    tags: 'noite escuro'},
-
-    {icon: SVG_BELL,
-    title: 'sino',
-    categories: 'todos objetos sinalização menu',
-    tags: 'notificação sininho'},
-
-    {icon: SVG_GEAR,
-    title: 'engrenagem',
-    categories: 'todos menu objetos',
-    tags: 'configuração'},
-
-    {icon: SVG_THUMB_UP,
-    title: 'joínha',
-    categories: 'todos internet social',
-    tags: 'joia legal mão'},
-
-    {icon: SVG_X,
-    title: 'xis',
-    categories: 'todos menu',
-    tags: 'fechar excluir sair errado negado'},
-
-    {icon: SVG_MAGNIFYING_GLASS,
-    title: 'lupa',
-    categories: 'todos menu objetos',
-    tags: 'procurar pesquisar achar encontrar'}
-]
 
 export let selectedItems = []
 
 
 // FUNÇÕES --->
 
-const createItem = (obj) => {
+const createItem = (obj, index) => {
     const ITEM_LIST = document.querySelector('[data-item-list]')
+    const SVG_CONFIG = `<svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke"`
 
     const ITEM = document.createElement('button')
     ITEM.classList.add('item')
     ITEM.setAttribute('data-item', '')
-    ITEM.innerHTML = obj.icon
+    ITEM.setAttribute('value', `Ícone '${ALL_ICONS[index].title}'`)
+    ITEM.innerHTML = `${SVG_CONFIG} ${obj.icon}`
 
     ITEM_LIST.appendChild(ITEM)
 }
@@ -136,7 +25,7 @@ export const createItemList = () => {
     ALL_ICONS.sort((a, b) => a.title.localeCompare(b.title))
 
     for(let i = 0; i < ALL_ICONS.length; i++) {
-        createItem(ALL_ICONS[i])
+        createItem(ALL_ICONS[i], i)
     }
 }
 
@@ -150,5 +39,18 @@ export const selectItem = (elem, index) => {
     }
 
     elem.classList.toggle('--item-selected')
+    downloadButton()
+
+    console.log(elem.getAttribute('value'))
+}
+
+export const deselectItems = (items) => {
+    items.forEach((elem) => {
+        if(elem.classList.contains('--item-selected')) {
+            elem.classList.remove('--item-selected')
+        }
+    })
+
+    selectedItems = []
     downloadButton()
 }
