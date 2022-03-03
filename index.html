@@ -12,59 +12,57 @@
     <aside class="menu --menu_mobile-closed" data-menu>
         <section class="config_wrapper">
             <div class="category_list">
-                <button class="category_button --category-selected" data-theme value="tema escuro">
+                <button class="category_button --tab --category-selected" data-theme aria-label="Ativar tema escuro">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M12.7938533,4 C14.1371822,6.54211004 13.7098609,9.65776368 11.7316963,11.7443209 C9.75353168,13.830878 6.66508032,14.4236421 4.05498985,13.2177053 C4.69798975,17.3316447 8.38215596,20.2693718 12.5360028,19.9804027 C16.6898496,19.6914337 19.9317615,16.2718828 19.9989388,12.1085387 C20.0661161,7.94519466 16.9362149,4.42283187 12.7938533,4 L12.7938533,4 Z"></path></svg>
                 </button>
 
-                <button class="category_button" data-theme value="tema claro">
+                <button class="category_button --tab" data-theme aria-label="Ativar tema claro">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M12,16.5 C14.485,16.5 16.5,14.485 16.5,12 C16.5,9.515 14.485,7.5 12,7.5 C9.515,7.5 7.5,9.515 7.5,12 C7.5,14.485 9.515,16.5 12,16.5 Z M12,2 L12,4.666 L12,2 Z M12,19.333 L12,22 L12,19.333 Z M22,12 L19.333,12 L22,12 Z M4.667,12 L2,12 L4.667,12 Z M4.934,4.933 L6.8,6.8 L4.934,4.933 Z M17.2,17.199 L19.067,19.066 L17.2,17.199 Z M19.067,4.933 L17.2,6.8 L19.067,4.933 Z M6.8,17.199 L4.934,19.066 L6.8,17.199 Z"></path></svg>
                 </button>
             </div>
 
-            <label for="input_size">Tamanho (px)</label>
+            <label for="input_size">Tamanho em pixels</label>
             <div class="config">
-                <button class="config_button" data-size-sub value="Reduzir tamanho dos ícones">
+                <button class="config_button --tab" data-size-sub aria-label="Clique para reduzir o tamanho dos ícones">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M5,12 L19,12"></path></svg>
                 </button>
 
                 <input class="config_input" id="input_size" data-size-text type="text" maxlength="2" spellcheck="false" value="40px">
 
-                <button class="config_button" data-size-add value="Aumentar tamanho dos ícones">
+                <button class="config_button --tab" data-size-add aria-label="Clique para aumentar o tamanho dos ícones">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M12,5 L12,19 M5,12 L19,12"></path></svg>
                 </button>
             </div>
     
-            <label for="input_width">Largura (px)</label>
+            <label for="input_width">Grossura em pixels</label>
             <div class="config">
-                <button class="config_button" data-width-sub value="Reduzir grossura da linha dos ícones">
+                <button class="config_button --tab" data-width-sub aria-label="Clique para reduzir a grossura da linha dos ícones">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M5,12 L19,12"></path></svg>
                 </button>
 
                 <input class="config_input" id="input_width" data-width-text type="text" maxlength="3" spellcheck="false" value="1px">
 
-                <button class="config_button" data-width-add value="Aumentar grossura da linha dos ícones">
+                <button class="config_button --tab" data-width-add aria-label="Clique para aumentar a grossura da linha dos ícones">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M12,5 L12,19 M5,12 L19,12"></path></svg>
                 </button>
             </div>
 
-            <label for="input_color">Cor (hex)</label>
+            <label for="input_color">Cor em hexadecimal</label>
             <div class="config">
-                <input class="config_input" id="input_color" data-color-text type="text" maxlength="6" spellcheck="false" value="#8156d2">
+                <input class="config_input" id="input_color" data-color-text type="text" maxlength="6" spellcheck="false" value="#9161eb">
                 
-                <button class="config_button color_picker_wrapper" tabindex="-1">
-                    <label class="screen_reader_only" for="input_color_picker">Escolher a cor dos ícones</label>
-                    <input class="color_picker" id="input_color_picker" data-color-picker type="color" value="#8156d2">
-                    <div class="color_picker_preview"></div>
-                </button>
+                <input class="config_button color_picker --tab" id="input_color_picker" data-color-picker type="color" value="#9161eb" aria-label="Clique para escolher a cor dos ícones">
+
+                <!-- <div class="color_picker_preview"></div> -->
             </div>
 
             <label>Categorias</label>
             <div class="category_list" data-category-list></div>
 
             <div class="config">
-                <button class="download_button --download_button-disabled" data-download-button>Nenhum ícone selecionado</button>
+                <button class="download_button --tab --download_button-disabled" data-download-button>Nenhum ícone selecionado</button>
 
-                <button class="deselect_all_button --invisible" data-deselect-all-button value="Desselecionar todos os ícones">
+                <button class="deselect_all_button --tab --invisible" data-deselect-all-button aria-label="Desselecionar todos os ícones">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M18,6 L6,18 M6,6 L18,18"></path></svg>
                 </button>
             </div>
@@ -75,32 +73,31 @@
     <div class="menu_shadow --invisible" data-menu-shadow></div>
 
     <div class="content">
-        <header>
+        <header role="banner">
             <h1>Project ICO</h1>
             <p>Criado para fins de estudo em HTML, CSS e JS
             <br>Acesse minhas redes:
-            <a href="https://www.linkedin.com/in/douglasdduarte/" target="_blank">LinkedIn</a>
-            | <a href="https://github.com/dougDuarte" target="_blank">Github</a>
+            <a class="--tab" href="https://www.linkedin.com/in/douglasdduarte/" target="_blank">LinkedIn</a>
+            &nbsp;|&nbsp;&nbsp;<a class="--tab" href="https://github.com/dougDuarte" target="_blank">Github</a>
         </header>
 
         <main>
             <div class="main_bar_wrapper">
-                <button class="mobile_button" data-mobile-open value="Abrir menu">
+                <button class="mobile_button --tab" data-mobile-open aria-label="Clique para abrir o menu mobile">
                     <svg viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M21,5.5 L3,5.5 M21,12 L3,12 M21,18.5 L3,18.5"></path></svg>
                 </button>
                 
-                <div class="search_bar_wrapper">
+                <div class="search_bar_wrapper" role="search">
                     <svg width="24" viewBox="0 0 24 24" fill="none"><path vector-effect="non-scaling-stroke" d="M10,18 C14.418278,18 18,14.418278 18,10 C18,5.581722 14.418278,2 10,2 C5.581722,2 2,5.581722 2,10 C2,14.418278 5.581722,18 10,18 Z M21.5067024,21.5067024 L16,16"></path></svg>
 
-                    <label class="screen_reader_only" for="search_bar">Pesquise tags como 'perigo' ou 'lugar'</label>
-                    <input class="search_bar" id="search_bar" data-search-bar type="text" placeholder="Pesquise tags como 'perigo' ou 'lugar'">
+                    <input class="search_bar" id="search_bar" data-search-bar type="text" placeholder="Pesquise tags como 'perigo' ou 'lugar'" aria-label="Barra de pesquisa">
                 </div>
             </div>
 
             <p class="search_result --invisible">Resultado da busca '<span data-search></span>', na categoria '<span data-search-category></span>'</p>
 
             <div class="search_empty_container --invisible" data-search-empty>
-                <span>¯\_(ツ)_/¯</span>
+                <span aria-hidden="true">¯\_(ツ)_/¯</span>
                 <span>A pesquisa não retornou nada...</span>
                 <span class="search_empty_paragraph">Dica: utilize termos mais genéricos.</span>
             </div>

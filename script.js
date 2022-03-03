@@ -1,7 +1,7 @@
 // IMPORTS --->
 
 import { selectTheme } from './theme.js'
-import { openMenu, closeMenu, closeMenuQuery } from './mobileMenu.js'
+import { menuState, openMenu, closeMenu, closeMenuQuery } from './mobileMenu.js'
 import { sizeSub, sizeAdd, sizeFilter, sizeStartTyping, sizeEndTyping } from './configIconSize.js'
 import { widthSub, widthAdd, widthFilter, widthStartTyping, widthEndTyping } from './configIconWidth.js'
 import { colorPick, colorFilter, colorStartTyping, colorEndTyping } from './configIconColor.js'
@@ -24,11 +24,11 @@ const MENU = document.querySelector('[data-menu]')
 const MENU_SHADOW = document.querySelector('[data-menu-shadow]');
 
 delete Hammer.defaults.cssProps.userSelect
-const HAMMER_TARGET = new Hammer(HTML)
+const HAMMER_TARGETS = [new Hammer(HTML), new Hammer(MENU)]
 
 const OPEN_MENU_BUTTON = document.querySelector('[data-mobile-open]')
 OPEN_MENU_BUTTON.addEventListener('click', () => openMenu(MENU, MENU_SHADOW))
-HAMMER_TARGET.on('swiperight', () => openMenu(MENU, MENU_SHADOW))
+HAMMER_TARGETS[0].on('swiperight', () => openMenu(MENU, MENU_SHADOW))
 
 
 // FECHAR MENU MOBILE --->
@@ -36,7 +36,17 @@ HAMMER_TARGET.on('swiperight', () => openMenu(MENU, MENU_SHADOW))
 const QUERY = window.matchMedia('(min-width: 841px)')
 QUERY.addEventListener('change', (event) => closeMenuQuery(event, MENU, MENU_SHADOW))
 MENU_SHADOW.addEventListener('click', (event) => closeMenu(MENU, event.target))
-HAMMER_TARGET.on('swipeleft', () => closeMenu(MENU, MENU_SHADOW))
+HAMMER_TARGETS.forEach((elem) => elem.on('swipeleft', () => closeMenu(MENU, MENU_SHADOW)))
+
+document.addEventListener('keydown', (event) => {
+    if(event.code === 'Escape') {
+        if(menuState === 0) {
+            openMenu(MENU, MENU_SHADOW)
+        } else {
+            closeMenu(MENU, MENU_SHADOW)
+        }
+    }
+})
 
 
 // FILTRAR O RESULTADO DA PESQUISA --->

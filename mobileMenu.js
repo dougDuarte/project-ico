@@ -1,6 +1,6 @@
 // IMPORTS E VARIÁVEIS --->
 
-let menuState = 0
+export let menuState = 0
 
 
 // FUNÇÕES --->
@@ -10,6 +10,7 @@ export const openMenu = (menu, shadow) => {
         menu.classList.remove('--menu_mobile-closed')
         shadow.classList.remove('--invisible')
         menuState = 1
+        document.activeElement.blur()
     }
 }
 
@@ -18,6 +19,7 @@ export const closeMenu = (menu, shadow) => {
         menu.classList.add('--menu_mobile-closed')
         shadow.classList.add('--invisible')
         menuState = 0
+        document.activeElement.blur()
     }
 }
 

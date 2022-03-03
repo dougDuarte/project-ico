@@ -23,20 +23,20 @@ const colorScheme = () => {
     if(currentTheme === 0) {
         ROOT.style.setProperty('--color-shadow', '#000000')
         ROOT.style.setProperty('--color-bg-main', '#121212')
-        ROOT.style.setProperty('--color-menu-button-hover', '#0f0f0f')
+        ROOT.style.setProperty('--color-menu-button-hover', '#0c0c0c')
         ROOT.style.setProperty('--color-border', '#282828')
-        ROOT.style.setProperty('--color-border-hover', '#333333')
-        ROOT.style.setProperty('--color-search-placeholder', '#404040')
-        ROOT.style.setProperty('--color-text-main', '#dddddd')
-        ROOT.style.setProperty('--color-text-secondary', '#666666')
+        ROOT.style.setProperty('--color-border-hover', '#393939')
+        ROOT.style.setProperty('--color-search-placeholder', '#444444')
+        ROOT.style.setProperty('--color-text-main', '#cccccc')
+        ROOT.style.setProperty('--color-text-secondary', '#8d8d8d')
     } else {
         ROOT.style.setProperty('--color-shadow', '#dddddd')
         ROOT.style.setProperty('--color-bg-main', '#fefefe')
-        ROOT.style.setProperty('--color-menu-button-hover', '#f8f8f8')
+        ROOT.style.setProperty('--color-menu-button-hover', '#f5f5f5')
         ROOT.style.setProperty('--color-border', '#dfdfdf')
-        ROOT.style.setProperty('--color-border-hover', '#b9b9b9')
+        ROOT.style.setProperty('--color-border-hover', '#b2b2b2')
         ROOT.style.setProperty('--color-search-placeholder', '#c4c4c4')
         ROOT.style.setProperty('--color-text-main', '#1f1f1f')
-        ROOT.style.setProperty('--color-text-secondary', '#a4a4a4')
+        ROOT.style.setProperty('--color-text-secondary', '#757575')
     }
 }

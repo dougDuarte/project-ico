@@ -33,6 +33,18 @@ input, button {
 	font-family: 'Inter', sans-serif;
 }
 
+input[type=color]::-webkit-color-swatch-wrapper {
+	padding: 0px;
+}
+
+input[type=color]::-webkit-color-swatch {
+	border: none;
+}
+
+input[type=color]::-moz-color-swatch {
+	border: none;
+}
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;

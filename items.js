@@ -14,8 +14,9 @@ const createItem = (obj, index) => {
 
     const ITEM = document.createElement('button')
     ITEM.classList.add('item')
+    ITEM.classList.add('--tab')
     ITEM.setAttribute('data-item', '')
-    ITEM.setAttribute('value', `Ícone '${ALL_ICONS[index].title}'`)
+    ITEM.setAttribute('aria-label', `Ícone '${ALL_ICONS[index].title}'`)
     ITEM.innerHTML = `${SVG_CONFIG} ${obj.icon}`
 
     ITEM_LIST.appendChild(ITEM)
@@ -40,8 +41,6 @@ export const selectItem = (elem, index) => {
 
     elem.classList.toggle('--item-selected')
     downloadButton()
-
-    console.log(elem.getAttribute('value'))
 }
 
 export const deselectItems = (items) => {

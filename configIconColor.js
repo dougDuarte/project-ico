@@ -1,6 +1,6 @@
 // IMPORTS E VARIÁVEIS --->
 
-export let iconColor = 'cedc04'
+export let iconColor = '9161eb'
 
 
 // FUNÇÕES --->

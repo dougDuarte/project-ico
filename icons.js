@@ -187,24 +187,24 @@ export const ALL_ICONS = [
     tags: 'mochila bolsa compras'},
 
     {icon: SVG_CHEVRON_DOWN,
-    title: 'divisão para baixo',
+    title: 'separador para baixo',
     categories: 'todos menu design',
-    tags: 'flecha flechinha sul'},
+    tags: 'flecha flechinha sul divisão'},
 
     {icon: SVG_CHEVRON_LEFT,
-    title: 'divisão para a esquerda',
+    title: 'separador para a esquerda',
     categories: 'todos menu design',
-    tags: 'flecha flechinha oeste'},
+    tags: 'flecha flechinha oeste divisão'},
 
     {icon: SVG_CHEVRON_RIGHT,
-    title: 'divisão para a direita',
+    title: 'separador para a direita',
     categories: 'todos menu design',
-    tags: 'flecha flechinha leste'},
+    tags: 'flecha flechinha leste divisão'},
 
     {icon: SVG_CHEVRON_UP,
-    title: 'divisão para cima',
+    title: 'separador para cima',
     categories: 'todos menu design',
-    tags: 'flecha flechinha norte'},
+    tags: 'flecha flechinha norte divisão'},
 
     {icon: SVG_COLOR_PALETTE,
     title: 'paleta de cores',
